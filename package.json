@@ -1,0 +1,22 @@
+{
+  "name": "discord-bot-sample",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mmednik/discord-bot-sample.git"
+  },
+  "author": "mmednik",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mmednik/discord-bot-sample/issues"
+  },
+  "homepage": "https://github.com/mmednik/discord-bot-sample#readme",
+  "dependencies": {
+    "discord.js": "^13.6.0"
+  }
+}
