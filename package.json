@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mmednik/discord-bot-sample#readme",
   "dependencies": {
-    "discord.js": "^13.6.0"
+    "discord.js": "^13.6.0",
+    "googleapis": "^92.0.0"
   }
 }
