@@ -1,3 +1,4 @@
+const AsciiTable = require("ascii-table");
 const Discord = require("discord.js");
 const config = require("./config.json");
 const client = new Discord.Client({ intents: ["GUILDS", "GUILD_MESSAGES"] });
@@ -19,16 +20,15 @@ async function getSheetData() {
     auth: authClientObject,
   });
   const spreadsheetId = config.SPREADSHEET_ID;
-  
+
   readData = await googleSheetsInstance.spreadsheets.values.get({
     auth,
     spreadsheetId,
-    range: "Sheet1!A:A",
+    range: "Sheet1!A:B",
   });
 }
 
 getSheetData();
-
 
 client.on("messageCreate", function (message) {
   if (message.author.bot) return;
@@ -48,7 +48,18 @@ client.on("messageCreate", function (message) {
       const sum = numArgs.reduce((counter, x) => (counter += x));
       message.reply(`La suma de los números es ${sum}!`);
     case "data":
-      message.reply(`Data: ${JSON.stringify(readData.data)}`);
+      
+      const table = new AsciiTable("");
+      let i=0;
+      readData.data.values.forEach((row) => {
+        if(i==0){
+          table.setHeading(row[0], row[1]);
+        } else {
+          table.addRow(row[0], row[1]);
+        }
+        i++;
+      });
+      message.reply(table.toString());
       break;
   }
 });

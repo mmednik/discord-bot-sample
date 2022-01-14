@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/mmednik/discord-bot-sample#readme",
   "dependencies": {
+    "ascii-table": "^0.0.9",
     "discord.js": "^13.6.0",
     "googleapis": "^92.0.0"
   }
