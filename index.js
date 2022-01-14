@@ -16,6 +16,10 @@ client.on("messageCreate", function (message) {
       const timeTaken = Date.now() - message.createdTimestamp;
       message.reply(`Perón! La latencia fue de ${timeTaken}ms.`);
       break;
+    case "sumar":
+      const numArgs = args.map((x) => parseFloat(x));
+      const sum = numArgs.reduce((counter, x) => (counter += x));
+      message.reply(`La suma de los números es ${sum}!`);
   }
 });
 
